@@ -16,5 +16,3 @@ Count of tool that people are currently using in their load test engagement
 ## In past three years, for your work, which load test tools have you used the most?
 Count of tools that people have used in last three years
 ![Data](https://github.com/hseera/tool_survey/blob/main/images/three_years.png)
-
-## How many virtual users/threads are you using for load testing in your current engagement?
