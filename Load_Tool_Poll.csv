@@ -48,11 +48,11 @@ Timestamp,experience,current_tool,tools_used,fav_tool,past_industries,country,ti
 1/05/2021 17:23,1-5 years,Artillery,"K6, Locust, Artillery",Artillery,"Entertainment, IAM",UK,Senior Engineer II,,,,
 1/05/2021 17:27,1-5 years,LoadRunner,"LoadRunner, JMeter",LoadRunner,Financial services,India,Test Engineer,,,,
 1/05/2021 17:36,11-15 years,OctoPerf,OctoPerf,OctoPerf,"Retail, Financial services, Utilities (i.e. water, gas , electricity), Education, Transport, Telecommunications, Entertainment, Government",France,Performance director,,,,
-1/05/2021 17:57,11-15 years,Gatling,JMeter,JMeter,"Financial services, Transport",Singapore ,Senior performance engineer ,,,,
+1/05/2021 17:57,11-15 years,Gatling,JMeter,JMeter,"Financial services, Transport",Singapore,Senior performance engineer ,,,,
 1/05/2021 18:45,6-10 years,JMeter,LoadRunner,LoadRunner,"Financial services, Transport",India,Technical Lead,,,,
 1/05/2021 18:59,6-10 years,LoadRunner,"JMeter, Gatling, Locust",LoadRunner,"Retail, Financial services",India,Technology Consultant,,,,
 1/05/2021 19:11,6-10 years,LoadRunner,"LoadRunner, JMeter",JMeter,"Emerging Technologies (i.e. IOT, AI, Blockchain, AR, Biometrics)",India,Sr Performance Engg,,,,
-1/05/2021 19:50,11-15 years,LoadRunner,"LoadRunner, JMeter",LoadRunner,"Retail, Financial services",Switzerland ,Performance Engineer ,,"Experience with the tool, Tool already procured",Financial services,
+1/05/2021 19:50,11-15 years,LoadRunner,"LoadRunner, JMeter",LoadRunner,"Retail, Financial services",Switzerland,Performance Engineer ,,"Experience with the tool, Tool already procured",Financial services,
 1/05/2021 20:06,0 - 1 year,Netstorm,Netstorm,BlazeMeter,Government,India,Associate Product Management,,Right tool for right job,Financial services,
 2/05/2021 15:32,11-15 years,JMeter,"JMeter, OctoPerf, Apica",LoadRunner,"Retail, Financial services",Australia,Performance Engineer,,"Right tool for right job, Experience with the tool",Financial services,100 - 999 VUs
 1/05/2021 20:19,6-10 years,LoadRunner,"LoadRunner, JMeter, BlazeMeter",LoadRunner,"Retail, Financial services, Telecommunications, Insurance",India,Performance testing lead,,Right tool for right job,Insurance,
@@ -60,7 +60,7 @@ Timestamp,experience,current_tool,tools_used,fav_tool,past_industries,country,ti
 1/05/2021 20:51,6-10 years,JMeter,JMeter,JMeter,Retail,India,Software test engineer,,,,
 1/05/2021 21:57,11-15 years,LoadRunner,"LoadRunner, JMeter",LoadRunner,Financial services,India,Performance testing Manager,,"Right tool for right job, Experience with the tool, Tool already procured",Financial services,
 1/05/2021 23:16,6-10 years,LoadRunner,"LoadRunner, JMeter, BlazeMeter",LoadRunner,"Retail, Financial services, Telecommunications",India,Senior Performance specialist,,"Right tool for right job, Experience with the tool, Support readily available",Telecommunications,
-1/05/2021 23:31,> 15 years,LoadRunner,"LoadRunner, NeoLoad, JMeter",NeoLoad,Financial services,Switzerland ,Performance Consultant ,,Tool already procured,Financial services,
+1/05/2021 23:31,> 15 years,LoadRunner,"LoadRunner, NeoLoad, JMeter",NeoLoad,Financial services,Switzerland,Performance Consultant ,,Tool already procured,Financial services,
 1/05/2021 23:33,11-15 years,LoadRunner,LoadRunner,LoadRunner,"Retail, Financial services, Telecommunications, Entertainment",Netherlands,Performance Engineer,,"Right tool for right job, Experience with the tool",Financial services,
 2/05/2021 0:42,6-10 years,NeoLoad,"NeoLoad, JMeter",LoadRunner,"Retail, Financial services",India,Consultant,,Cost considerations,Financial services,
 2/05/2021 3:26,11-15 years,LoadRunner,LoadRunner,LoadRunner,"Retail, Transport, Telecommunications",India,Lead Performance engineer,,"Right tool for right job, Experience with the tool, Tool already procured, Support readily available",Financial services,
@@ -98,11 +98,11 @@ Timestamp,experience,current_tool,tools_used,fav_tool,past_industries,country,ti
 4/05/2021 20:46,11-15 years,LoadRunner,"LoadRunner, JMeter, BlazeMeter",LoadRunner,Telecommunications,India,Performance engineer,,"Experience with the tool, Tool already procured",CRM,"1,000 -  2,499 VUs"
 4/05/2021 21:23,6-10 years,LoadRunner,"LoadRunner, JMeter",LoadRunner,"Financial services, Transport",India,Software Engineer,,Right tool for right job,Financial services,"5,000 - 9,999 VUs"
 4/05/2021 22:51,1-5 years,LoadRunner,LoadRunner,LoadRunner,Financial services,Italy,Performance Engineer,,"Right tool for right job, Experience with the tool, Tool already procured",Financial services,"2,500 - 4,999 VUs"
-5/05/2021 17:47,1-5 years,K6,"JMeter, K6",K6,Financial services,United Kingdom ,Senior Test Engineer ,,Experience with the tool,Financial services,100 - 999 VUs
+5/05/2021 17:47,1-5 years,K6,"JMeter, K6",K6,Financial services,United Kingdom,Senior Test Engineer ,,Experience with the tool,Financial services,100 - 999 VUs
 5/05/2021 17:49,1-5 years,JMeter,LoadRunner,LoadRunner,"Financial services, Healthcare",India,Senior Performance Engineer,,"Cost considerations, Right tool for right job",Financial services,"1,000 -  2,499 VUs"
 5/05/2021 18:10,6-10 years,JMeter,"LoadRunner, JMeter, Rational Performance Tester",JMeter,"Retail, Transport, Entertainment",India,Associated test lead,,Cost considerations,Retail,100 - 999 VUs
 5/05/2021 18:47,6-10 years,LoadRunner,"LoadRunner, NeoLoad, JMeter",JMeter,"Financial services, Emerging Technologies (i.e. IOT, AI, Blockchain, AR, Biometrics), Telecommunications",India,Performance consultant,,"Cost considerations, Right tool for right job",Financial services,"1,000 -  2,499 VUs"
-5/05/2021 19:12,> 15 years,Gatling,"JMeter, Gatling",Gatling,"Financial services, Transport, Government",Netherlands ,Performance Test Engineer,,"Right tool for right job, Experience with the tool",Retail,"1,000 -  2,499 VUs"
+5/05/2021 19:12,> 15 years,Gatling,"JMeter, Gatling",Gatling,"Financial services, Transport, Government",Netherlands,Performance Test Engineer,,"Right tool for right job, Experience with the tool",Retail,"1,000 -  2,499 VUs"
 5/05/2021 19:12,6-10 years,JMeter,"NeoLoad, JMeter",NeoLoad,"Retail, Entertainment",UK,Performance Test Engineer,,"Cost considerations, Right tool for right job",Retail,100 - 999 VUs
 5/05/2021 19:15,> 15 years,NeoLoad,NeoLoad,NeoLoad,Financial services,Belgiun,Technical Architect,,"Cost considerations, Right tool for right job, Experience with the tool, Tool already procured, Support readily available",Financial services,100 - 999 VUs
 5/05/2021 19:16,6-10 years,JMeter,"LoadRunner, JMeter",Silk Performer,"Financial services, Government, Healthcare",Ireland,Senior Performance Engineer,,"Cost considerations, Right tool for right job",Healthcare,0 - 100 VUs
