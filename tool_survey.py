@@ -3,6 +3,7 @@
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
+from collections import Counter
 import warnings
 warnings.filterwarnings("ignore")
  
@@ -41,6 +42,17 @@ def split_string_in_column(file_name):
         fav_tool['value'] = fav_tool['value'].str.capitalize()
         fav_tool_table = pd.pivot_table(fav_tool, values='value',columns=['value'], aggfunc='count')
         
+        #Get country data
+        country = Counter(tools_df['country'])
+        country_list = pd.DataFrame(country.items())
+        country_list.columns = ['country','count']
+        
+        
+        #Get current industry data
+        current_industry = Counter(tools_df['current_industry'])
+        current_industry_list = pd.DataFrame(current_industry.items())
+        current_industry_list.columns = ['industry','count']
+
         
 #        #Get Total Performance Testing Experience
 #        experience = tools_df['experience'].str.split(", ", expand = True) #split each row in the column with ", "
@@ -49,21 +61,21 @@ def split_string_in_column(file_name):
 #        experience['value'] = experience['value'].str.capitalize()
 #        experience_table = pd.pivot_table(experience, values='value',columns=['value'], aggfunc='count')
 #        
-#        #Get virtual users load tested to in current engagement
-#        virtual_users = tools_df['virtual_users'].str.split(", ", expand = True) #split each row in the column with ", "
-#        virtual_users=pd.melt(virtual_users) #combine all columns into one column
-#        virtual_users.sort_values(["value"], ascending=True)
-#        
-#        virtual_users_table = pd.pivot_table(virtual_users, values='value',columns=['value'], aggfunc='count')
-#        
-#        print(virtual_users_table)
-#        virtual_users_table = virtual_users_table.T.sort_values(by ='value')
-#        print(virtual_users_table)
+        #Get virtual users load tested to in current engagement
+        # virtual_users = tools_df['virtual_users'].str.split(", ", expand = True) #split each row in the column with ", "
+        # virtual_users=pd.melt(virtual_users) #combine all columns into one column
+        # virtual_users.sort_values(["value"], ascending=True)
+        
+        # virtual_users_table = pd.pivot_table(virtual_users, values='value',columns=['value'], aggfunc='count')
+        
+        # print(virtual_users_table)
+        # #virtual_users_table = virtual_users_table.T.sort_values(by ='value')
         
         tools_used_chart(tools_used_table.T)
         current_tool_chart(current_tool_table.T)
-        fav_tool_chart(fav_tool_table.T)
-        
+        fav_tool_chart(fav_tool_table.T) 
+        country_chart(country_list)
+        current_industry_chart(current_industry_list)
         
     except Exception as e:
         print(e)
@@ -71,8 +83,28 @@ def split_string_in_column(file_name):
 def autopct_more_than_1(pct):
     return ('%1.f%%' % pct) if pct > 1 else ''
 
-def tools_used_chart(tools_used):
+def current_industry_chart(current_industry):
+    current_industry = current_industry.sort_values(by = 'count', ascending=False)
+    bar,ax = plt.subplots(figsize=(10,10))
+    ax = sns.barplot(x='count', y='industry', data=current_industry ,orient='h')
+    ax.set_xlabel ("Count")
+    ax.set_ylabel ("Industry")
+    for rect in ax.patches:
+        ax.text (rect.get_width(), rect.get_y() + rect.get_height() / 2,"%d"% rect.get_width(), weight='bold' )
+
+
+def country_chart(country):
+    country = country.sort_values(by = 'count', ascending=False)
+    bar,ax = plt.subplots(figsize=(10,10))
+    ax = sns.barplot(x='count', y='country', data=country ,orient='h')
+    ax.set_xlabel ("Count")
+    ax.set_ylabel ("Country")
+    for rect in ax.patches:
+        ax.text (rect.get_width(), rect.get_y() + rect.get_height() / 2,"%d"% rect.get_width(), weight='bold' )
     
+
+def tools_used_chart(tools_used):
+    tools_used = tools_used.sort_values(by = 'variable', ascending=False)
     bar,ax = plt.subplots(figsize=(10,10))
     ax = sns.barplot(x="variable", y=tools_used.index, data=tools_used, ci=None, palette="muted",orient='h' )
     #ax.set_title("In past three years, for your work, which load test tools have you used the most?", fontsize=13)
@@ -82,6 +114,7 @@ def tools_used_chart(tools_used):
         ax.text (rect.get_width(), rect.get_y() + rect.get_height() / 2,"%d"% rect.get_width(), weight='bold' )
 
 def current_tool_chart(current_tool):
+    current_tool = current_tool.sort_values(by = 'variable', ascending=False)
     bar,ax = plt.subplots(figsize=(10,10))
     ax = sns.barplot(x="variable", y=current_tool.index, data=current_tool, ci=None, palette="muted",orient='h' )
     #ax.set_title("Which load test tool are you using in your current engagement/job?", fontsize=13)
@@ -92,6 +125,7 @@ def current_tool_chart(current_tool):
 
 
 def fav_tool_chart(fav_tool):
+    fav_tool = fav_tool.sort_values(by = 'variable', ascending=False)
     bar,ax = plt.subplots(figsize=(10,10))
     ax = sns.barplot(x="variable", y=fav_tool.index, data=fav_tool, ci=None, palette="muted",orient='h' )
     #ax.set_title("Which is your favorite load test tool(/load test platform)?", fontsize=13)
