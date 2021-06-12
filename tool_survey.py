@@ -41,6 +41,25 @@ def split_string_in_column(file_name):
         fav_tool['value'] = fav_tool['value'].str.capitalize()
         fav_tool_table = pd.pivot_table(fav_tool, values='value',columns=['value'], aggfunc='count')
         
+        
+#        #Get Total Performance Testing Experience
+#        experience = tools_df['experience'].str.split(", ", expand = True) #split each row in the column with ", "
+#        experience=pd.melt(experience) #combine all columns into one column
+#        
+#        experience['value'] = experience['value'].str.capitalize()
+#        experience_table = pd.pivot_table(experience, values='value',columns=['value'], aggfunc='count')
+#        
+#        #Get virtual users load tested to in current engagement
+#        virtual_users = tools_df['virtual_users'].str.split(", ", expand = True) #split each row in the column with ", "
+#        virtual_users=pd.melt(virtual_users) #combine all columns into one column
+#        virtual_users.sort_values(["value"], ascending=True)
+#        
+#        virtual_users_table = pd.pivot_table(virtual_users, values='value',columns=['value'], aggfunc='count')
+#        
+#        print(virtual_users_table)
+#        virtual_users_table = virtual_users_table.T.sort_values(by ='value')
+#        print(virtual_users_table)
+        
         tools_used_chart(tools_used_table.T)
         current_tool_chart(current_tool_table.T)
         fav_tool_chart(fav_tool_table.T)
@@ -56,53 +75,45 @@ def tools_used_chart(tools_used):
     
     bar,ax = plt.subplots(figsize=(10,10))
     ax = sns.barplot(x="variable", y=tools_used.index, data=tools_used, ci=None, palette="muted",orient='h' )
-    ax.set_title("In past three years, for your work, which load test tools have you used the most?", fontsize=13)
+    #ax.set_title("In past three years, for your work, which load test tools have you used the most?", fontsize=13)
     ax.set_xlabel ("Count")
-    ax.set_ylabel ("Tool")
+    ax.set_ylabel ("Tools Used")
     for rect in ax.patches:
         ax.text (rect.get_width(), rect.get_y() + rect.get_height() / 2,"%d"% rect.get_width(), weight='bold' )
 
 def current_tool_chart(current_tool):
     bar,ax = plt.subplots(figsize=(10,10))
     ax = sns.barplot(x="variable", y=current_tool.index, data=current_tool, ci=None, palette="muted",orient='h' )
-    ax.set_title("Which load test tool are you using in your current engagement/job?", fontsize=13)
+    #ax.set_title("Which load test tool are you using in your current engagement/job?", fontsize=13)
     ax.set_xlabel ("Count")
-    ax.set_ylabel ("Tool")
+    ax.set_ylabel ("Current Tool")
     for rect in ax.patches:
         ax.text (rect.get_width(), rect.get_y() + rect.get_height() / 2,"%d"% rect.get_width(), weight='bold' )
+
 
 def fav_tool_chart(fav_tool):
     bar,ax = plt.subplots(figsize=(10,10))
     ax = sns.barplot(x="variable", y=fav_tool.index, data=fav_tool, ci=None, palette="muted",orient='h' )
-    ax.set_title("Which is your favorite load test tool(/load test platform)?", fontsize=13)
+    #ax.set_title("Which is your favorite load test tool(/load test platform)?", fontsize=13)
     ax.set_xlabel ("Count")
-    ax.set_ylabel ("Tool")
+    ax.set_ylabel ("Favorite Tool")
     for rect in ax.patches:
         ax.text (rect.get_width(), rect.get_y() + rect.get_height() / 2,"%d"% rect.get_width(), weight='bold' )
 
-
-#def print_data(t1, t2, t3):
-#    
-#    #fig, ax = plt.subplots(2,2)
-#    #ax = ax.flatten()
-#    fig, axes = plt.subplots(2, 2, figsize=(10, 10), sharey=False)
-#    
-#    bar,ax = plt.subplots(figsize=(10,10))
-#    ax = sns.barplot(ax=axes[0,0], x="variable", y=t1.index, data=t1, ci=None, palette="muted",orient='h' )
-#    ax.set_title("In past three years, for your work, which load test tools have you used the most?", fontsize=13)
-#    ax.set_xlabel ("Count")
-#    ax.set_ylabel ("Tool")
-#    for rect in ax.patches:
-#        ax.text (rect.get_width(), rect.get_y() + rect.get_height() / 2,"%d"% rect.get_width(), weight='bold' )
-#    #sns.histplot(data=t1, y="all", x='variable')
-#    
-#    fig.tight_layout(pad=2)
-#    print(t1)
-#    #sns.histplot(data=t2, y="value", x='variable')
-#    #sns.histplot(data=t3, y="value", x='variable')
-#    print(t2)
-#    print(t3)
-#           
+def experience_chart(experience):
+    bar,ax = plt.subplots(figsize=(10,6))
+    ax = sns.barplot(x=experience.index, y="variable", data=experience, ci=None, palette="muted",orient='v' )
+    #ax.set_title("How long have you been doing performance testing?", fontsize=13)
+    ax.set_xlabel ("Years of Experience")
+    ax.set_ylabel ("Count")
+    
+def virtual_users_chart(virtual_users):
+    bar,ax = plt.subplots(figsize=(12,8))
+    ax = sns.barplot(x=virtual_users.index, y="variable", data=virtual_users, ci=None, palette="muted",orient='v' )
+    #ax.set_title("How long have you been doing performance testing?", fontsize=13)
+    ax.set_xlabel ("Virtual Users")
+    ax.set_ylabel ("Count")
+   
 
 def main():
     FILE_TO_READ = "./Load_Tool_Poll.csv"  # file containing column with tool names seperated by ", ". This is a demo file
