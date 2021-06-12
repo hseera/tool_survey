@@ -4,6 +4,7 @@ Result from the Load test tool survey.
 
 Link to survey: https://docs.google.com/forms/d/e/1FAIpQLSdHZ2F2DTJtq41wH9bQHAj6ZbP35r0J5jAOfXpbUeXCOw2weQ/viewform
 
+NOTE: I will update the Readme page with more analysis of the data.
 
 ## Favourite Tool
 Count of favorite load test tool
