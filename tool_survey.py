@@ -4,6 +4,8 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 from collections import Counter
+from wordcloud import WordCloud, STOPWORDS
+
 import warnings
 warnings.filterwarnings("ignore")
  
@@ -52,7 +54,8 @@ def split_string_in_column(file_name):
         current_industry = Counter(tools_df['current_industry'])
         current_industry_list = pd.DataFrame(current_industry.items())
         current_industry_list.columns = ['industry','count']
-
+        
+        
         
 #        #Get Total Performance Testing Experience
 #        experience = tools_df['experience'].str.split(", ", expand = True) #split each row in the column with ", "
@@ -76,12 +79,22 @@ def split_string_in_column(file_name):
         fav_tool_chart(fav_tool_table.T) 
         country_chart(country_list)
         current_industry_chart(current_industry_list)
+        title_word_chart(tools_df['title'])
         
     except Exception as e:
         print(e)
 
-def autopct_more_than_1(pct):
+def autopct(pct):
     return ('%1.f%%' % pct) if pct > 1 else ''
+
+def title_word_chart(title_list):
+    text = (title_list.str.rstrip()).values
+    wordcloud = WordCloud(width = 3000, height = 2000, random_state=1, background_color='salmon', colormap='Pastel1', 
+                          collocations=False, stopwords = STOPWORDS).generate(" ".join(text)) # adds apostrophe if you use str(text) 
+    
+    plt.figure(figsize=(40, 30))
+    plt.imshow(wordcloud) 
+
 
 def current_industry_chart(current_industry):
     current_industry = current_industry.sort_values(by = 'count', ascending=False)
