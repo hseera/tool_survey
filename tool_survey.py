@@ -11,7 +11,7 @@ warnings.filterwarnings("ignore")
  
 FILE_TO_WRITE = "./sample_files/full_list.csv"
  
-def split_string_in_column(file_name):
+def extract_data(file_name):
     
     try:
         tools_df = pd.read_csv(file_name)
@@ -165,7 +165,7 @@ def virtual_users_chart(virtual_users):
 def main():
     FILE_TO_READ = "./Load_Tool_Poll.csv"  # file containing column with tool names seperated by ", ". This is a demo file
 
-    split_string_in_column(FILE_TO_READ)
+    extract_data(FILE_TO_READ)
 
 if __name__ == "__main__":
     main()
