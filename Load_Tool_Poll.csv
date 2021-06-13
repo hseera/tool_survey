@@ -22,7 +22,7 @@ Timestamp,experience,current_tool,tools_used,fav_tool,past_industries,country,ti
 1/05/2021 13:21,1-5 years,LoadRunner,"LoadRunner, JMeter",JMeter,"Telecommunications, Healthcare",India,Performance Analyst,,,,
 1/05/2021 13:33,11-15 years,Soasta,"LoadRunner, EggPlant, Soasta",LoadRunner,Retail,USA,Technical Test Lead,,,,
 1/05/2021 13:44,> 15 years,LoadRunner,LoadRunner,LoadRunner,"Financial services, Government",India,Service Delivery Manager ,,,,
-1/05/2021 13:48,0 - 1 year,JMeter,JMeter,JMeter,Financial services,India,SQA,,,,
+1/05/2021 13:48,< 1 year,JMeter,JMeter,JMeter,Financial services,India,SQA,,,,
 1/05/2021 13:58,6-10 years,In-house Springboot application written for volume runs. PoC in progress for Gatling (as http based) and Element (UI based) with FloodIO execution environment,LoadRunner,LoadRunner,"Retail, Financial services",India,Performance Analyst,,,,
 1/05/2021 13:59,1-5 years,BlazeMeter,"LoadRunner, JMeter",LoadRunner,Financial services,India,Associate Software Engineer,,,,
 1/05/2021 14:06,6-10 years,LoadRunner,JMeter,LoadRunner,"Utilities (i.e. water, gas , electricity), Transport, Entertainment",India,Senior Performance Engineer,,,,
@@ -53,7 +53,7 @@ Timestamp,experience,current_tool,tools_used,fav_tool,past_industries,country,ti
 1/05/2021 18:59,6-10 years,LoadRunner,"JMeter, Gatling, Locust",LoadRunner,"Retail, Financial services",India,Technology Consultant,,,,
 1/05/2021 19:11,6-10 years,LoadRunner,"LoadRunner, JMeter",JMeter,"Emerging Technologies (i.e. IOT, AI, Blockchain, AR, Biometrics)",India,Senior Performance Engineer,,,,
 1/05/2021 19:50,11-15 years,LoadRunner,"LoadRunner, JMeter",LoadRunner,"Retail, Financial services",Switzerland,Performance Engineer ,,"Experience with the tool, Tool already procured",Financial services,
-1/05/2021 20:06,0 - 1 year,Netstorm,Netstorm,BlazeMeter,Government,India,Associate Product Management,,Right tool for right job,Financial services,
+1/05/2021 20:06,< 1 year,Netstorm,Netstorm,BlazeMeter,Government,India,Associate Product Management,,Right tool for right job,Financial services,
 2/05/2021 15:32,11-15 years,JMeter,"JMeter, OctoPerf, Apica",LoadRunner,"Retail, Financial services",Australia,Performance Engineer,,"Right tool for right job, Experience with the tool",Financial services,100 - 999 VUs
 1/05/2021 20:19,6-10 years,LoadRunner,"LoadRunner, JMeter, BlazeMeter",LoadRunner,"Retail, Financial services, Telecommunications, Insurance",India,Performance Testing Lead,,Right tool for right job,Insurance,
 1/05/2021 20:22,6-10 years,JMeter,"JMeter, Silk Performer",Silk Performer,"Financial services, Education, HR and ESS",India,Senior Consultant,,Cost considerations,Financial services,
@@ -140,8 +140,8 @@ Timestamp,experience,current_tool,tools_used,fav_tool,past_industries,country,ti
 19/05/2021 12:33,6-10 years,Locust,"LoadRunner, JMeter",LoadRunner,Financial services,India,Team Lead,,"Right tool for right job, Experience with the tool, Support readily available",Automobile,0 - 100 VUs
 28/05/2021 4:38,6-10 years,LoadRunner,LoadRunner,LoadRunner,"Telecommunications, Entertainment",USA,Senior Performance Engineer,,"Right tool for right job, Experience with the tool, Tool already procured, Support readily available",Telecommunications,"2,500 - 4,999 VUs"
 28/05/2021 21:33,6-10 years,LoadRunner,"LoadRunner, JMeter",LoadRunner,"Retail, Financial services, Transport",India,Senior Performance Engineer,,Right tool for right job,Financial services,"10,000 - 49,999 VUs"
-5/06/2021 11:59,0 - 1 year,Locust,Locust,Locust,Financial services,USA,QA Lead,,"Right tool for right job, Experience with the tool",Financial services,0 - 100 VUs
+5/06/2021 11:59,< 1 year,Locust,Locust,Locust,Financial services,USA,QA Lead,,"Right tool for right job, Experience with the tool",Financial services,0 - 100 VUs
 6/06/2021 7:05,6-10 years,Gatling,"K6, Gatling",Gatling,"Entertainment, Marketing",USA,Quality Engineer,,"Cost considerations, Right tool for right job",Entertainment,"1,000 -  2,499 VUs"
-9/06/2021 7:28,0 - 1 year,JMeter,JMeter,JMeter,Retail,Ireland,Performance Tester,,"Cost considerations, Right tool for right job",Retail,100 - 999 VUs
+9/06/2021 7:28,< 1 year,JMeter,JMeter,JMeter,Retail,Ireland,Performance Tester,,"Cost considerations, Right tool for right job",Retail,100 - 999 VUs
 10/06/2021 23:15,1-5 years,Locust,"JMeter, Gatling, Locust",Locust,Logistics,Brazil,Senior Software Engineer,,"Cost considerations, Experience with the tool",Delivery,"> 50,000 VUs"
 12/06/2021 16:59,1-5 years,JMeter,"JMeter, Gatling, Locust",JMeter,"Retail, Transport, Telecommunications",USA,Performance Engineer,,"Cost considerations, Right tool for right job, Experience with the tool",Retail,"2,500 - 4,999 VUs"

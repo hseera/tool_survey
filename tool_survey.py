@@ -6,12 +6,16 @@ import matplotlib.pyplot as plt
 from collections import Counter
 from wordcloud import WordCloud, STOPWORDS
 
+import holoviews as hv
+hv.extension('bokeh')
+
 import warnings
 warnings.filterwarnings("ignore")
  
-FILE_TO_WRITE = "./sample_files/full_list.csv"
  
 def extract_data(file_name):
+    
+    STATUS = True #doggle chart generation ON/OFF
     
     try:
         tools_df = pd.read_csv(file_name)
@@ -55,31 +59,32 @@ def extract_data(file_name):
         current_industry_list = pd.DataFrame(current_industry.items())
         current_industry_list.columns = ['industry','count']
         
+        #Get experience
+        experience = Counter(tools_df['experience'])
+        experience_list = pd.DataFrame(experience.items())
+        experience_list.columns = ['experience','count']
+    
         
+        #Get experience by country
+        sankey = tools_df.groupby(["experience", "country"]).size().reset_index(name="Time")
+        experience_by_country(sankey)
         
-#        #Get Total Performance Testing Experience
-#        experience = tools_df['experience'].str.split(", ", expand = True) #split each row in the column with ", "
-#        experience=pd.melt(experience) #combine all columns into one column
-#        
-#        experience['value'] = experience['value'].str.capitalize()
-#        experience_table = pd.pivot_table(experience, values='value',columns=['value'], aggfunc='count')
-#        
+       
         #Get virtual users load tested to in current engagement
-        # virtual_users = tools_df['virtual_users'].str.split(", ", expand = True) #split each row in the column with ", "
-        # virtual_users=pd.melt(virtual_users) #combine all columns into one column
-        # virtual_users.sort_values(["value"], ascending=True)
+        virtual_users = Counter(tools_df['virtual_users'])
+        virtual_users_list = pd.DataFrame(virtual_users.items())
+        virtual_users_list.columns = ['virtual users','count']
+        virtual_users_chart(virtual_users_list)
         
-        # virtual_users_table = pd.pivot_table(virtual_users, values='value',columns=['value'], aggfunc='count')
         
-        # print(virtual_users_table)
-        # #virtual_users_table = virtual_users_table.T.sort_values(by ='value')
-        
-        tools_used_chart(tools_used_table.T)
-        current_tool_chart(current_tool_table.T)
-        fav_tool_chart(fav_tool_table.T) 
-        country_chart(country_list)
-        current_industry_chart(current_industry_list)
-        title_word_chart(tools_df['title'])
+        if STATUS == True:
+            tools_used_chart(tools_used_table.T)
+            current_tool_chart(current_tool_table.T)
+            fav_tool_chart(fav_tool_table.T) 
+            country_chart(country_list)
+            current_industry_chart(current_industry_list)
+            title_word_chart(tools_df['title'])
+            experience_chart(experience_list)
         
     except Exception as e:
         print(e)
@@ -87,6 +92,26 @@ def extract_data(file_name):
 def autopct(pct):
     return ('%1.f%%' % pct) if pct > 1 else ''
 
+def experience_by_country(expr_by_country):
+    
+    custom_dict = {'< 1 year': 0, '1-5 years': 1, '6-10 years': 2, '11-15 years': 3, '> 15 years': 4}
+    
+    expr_by_country['experience'] = pd.Categorical(expr_by_country['experience'], categories=sorted(custom_dict, key=custom_dict.get), ordered=True)
+    
+    expr_by_country.sort_values('experience',inplace=True, ignore_index=True)
+        
+    test = expr_by_country.reindex()
+
+    figure = hv.Sankey(test)
+    
+    figure.opts(cmap='Colorblind',label_position='left',
+                                  edge_color='country', edge_line_width=0,
+                                  node_alpha=1.0, node_width=40, node_sort=True,
+                                  width=1000, height=1000, bgcolor="snow",
+                                  title="Experience By Country")
+    
+    hv.save(figure, 'graph.html')
+    
 def title_word_chart(title_list):
     text = (title_list.str.rstrip()).values
     wordcloud = WordCloud(width = 3000, height = 2000, random_state=1, background_color='salmon', colormap='Pastel1', 
@@ -148,18 +173,28 @@ def fav_tool_chart(fav_tool):
         ax.text (rect.get_width(), rect.get_y() + rect.get_height() / 2,"%d"% rect.get_width(), weight='bold' )
 
 def experience_chart(experience):
+    custom_dict = {'< 1 year': 0, '1-5 years': 1, '6-10 years': 2, '11-15 years': 3, '> 15 years': 4}
+    
+    experience['experience'] = pd.Categorical(experience['experience'], categories=sorted(custom_dict, key=custom_dict.get), ordered=True)
+    
+    experience.sort_values('experience',inplace=True, ignore_index=True)
     bar,ax = plt.subplots(figsize=(10,6))
-    ax = sns.barplot(x=experience.index, y="variable", data=experience, ci=None, palette="muted",orient='v' )
+    ax = sns.barplot(x="experience", y="count", data=experience, ci=None, palette="muted",orient='v' )
     #ax.set_title("How long have you been doing performance testing?", fontsize=13)
     ax.set_xlabel ("Years of Experience")
     ax.set_ylabel ("Count")
     
 def virtual_users_chart(virtual_users):
-    bar,ax = plt.subplots(figsize=(12,8))
-    ax = sns.barplot(x=virtual_users.index, y="variable", data=virtual_users, ci=None, palette="muted",orient='v' )
-    #ax.set_title("How long have you been doing performance testing?", fontsize=13)
-    ax.set_xlabel ("Virtual Users")
-    ax.set_ylabel ("Count")
+    custom_dict = {'0 - 100 VUs': 0, '100 - 999 VUs': 1, '1,000 -  2,499 VUs': 2, '2,500 - 4,999 VUs': 3, '5,000 - 9,999 VUs': 4, '10,000 - 49,999 VUs': 5, '> 50,000 VUs': 6}
+    
+    virtual_users['virtual users'] = pd.Categorical(virtual_users['virtual users'], categories=sorted(custom_dict, key=custom_dict.get), ordered=True)  
+    virtual_users.sort_values('virtual users',inplace=True, ignore_index=True)
+    bar,ax = plt.subplots(figsize=(14,6))
+    ax = sns.barplot(x="count", y="virtual users", data=virtual_users, ci=None, palette="muted",orient='h' )
+    ax.set_xlabel ("Count")
+    ax.set_ylabel ("Virtual Users")
+    for rect in ax.patches:
+        ax.text (rect.get_width(), rect.get_y() + rect.get_height() / 2,"%d"% rect.get_width(), weight='bold' )
    
 
 def main():
