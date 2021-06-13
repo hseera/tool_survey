@@ -36,6 +36,9 @@ Count of tools that people have used in last three years
 List of most common word in a title/role.
 ![Data](https://github.com/hseera/tool_survey/blob/main/images/title_word.png)
 
+## Experience By Country Comparison
+Note: For high resoultion, open up expr_by_country.html page in the images folder.
+![Data](https://github.com/hseera/tool_survey/blob/main/images/expr_by_country.png)
 
 
 

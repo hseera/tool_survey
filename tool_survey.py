@@ -64,18 +64,14 @@ def extract_data(file_name):
         experience_list = pd.DataFrame(experience.items())
         experience_list.columns = ['experience','count']
     
-        
-        #Get experience by country
-        sankey = tools_df.groupby(["experience", "country"]).size().reset_index(name="Time")
-        experience_by_country(sankey)
-        
        
         #Get virtual users load tested to in current engagement
         virtual_users = Counter(tools_df['virtual_users'])
         virtual_users_list = pd.DataFrame(virtual_users.items())
         virtual_users_list.columns = ['virtual users','count']
-        virtual_users_chart(virtual_users_list)
         
+        #Get experience by country
+        expr_by_country = tools_df.groupby(["experience", "country"]).size().reset_index(name="Time")
         
         if STATUS == True:
             tools_used_chart(tools_used_table.T)
@@ -85,6 +81,8 @@ def extract_data(file_name):
             current_industry_chart(current_industry_list)
             title_word_chart(tools_df['title'])
             experience_chart(experience_list)
+            virtual_users_chart(virtual_users_list)
+            experience_by_country(expr_by_country)
         
     except Exception as e:
         print(e)
@@ -107,7 +105,7 @@ def experience_by_country(expr_by_country):
     figure.opts(cmap='Colorblind',label_position='left',
                                   edge_color='country', edge_line_width=0,
                                   node_alpha=1.0, node_width=40, node_sort=True,
-                                  width=1000, height=1000, bgcolor="snow",
+                                  width=800, height=1200, bgcolor="snow",
                                   title="Experience By Country")
     
     hv.save(figure, 'graph.html')
