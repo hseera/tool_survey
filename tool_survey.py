@@ -87,8 +87,6 @@ def extract_data(file_name):
     except Exception as e:
         print(e)
 
-def autopct(pct):
-    return ('%1.f%%' % pct) if pct > 1 else ''
 
 def experience_by_country(expr_by_country):
     
@@ -98,9 +96,9 @@ def experience_by_country(expr_by_country):
     
     expr_by_country.sort_values('experience',inplace=True, ignore_index=True)
         
-    test = expr_by_country.reindex()
+    expr_by_country = expr_by_country.reindex()
 
-    figure = hv.Sankey(test)
+    figure = hv.Sankey(expr_by_country)
     
     figure.opts(cmap='Colorblind',label_position='left',
                                   edge_color='country', edge_line_width=0,
